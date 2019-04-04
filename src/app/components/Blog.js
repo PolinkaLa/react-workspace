@@ -4,7 +4,7 @@ import Post from './Post';
 class Blog extends React.Component {
   render() {
     const postsData = this.props.postsData.map((item, index) => {
-        return <Post key={index} title={item.title} postBody={item.postBody}/>
+        return <Post key={index} item={item}/>
       })
     return (
         <React.Fragment>
