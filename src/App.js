@@ -36,6 +36,7 @@ class App extends React.Component {
     return (
     <React.Fragment>
       <h1>Welcome!</h1>
+      <WelcomeModal/>
       <Menu items={menuItems} titleMenu="Navigation"/>
       {/* <Login titleLogin="Login"/> */}
       <Blog postsData={posts} />
