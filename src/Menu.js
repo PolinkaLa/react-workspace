@@ -9,8 +9,8 @@ class Menu extends React.Component {
     
     return (
       <div>
-        <h2>{this.props.titleMenu}</h2>
-        <ul>
+        {/* <h2>{this.props.titleMenu}</h2> */}
+        <ul class="nav">
           {items}
         </ul>
       </div>

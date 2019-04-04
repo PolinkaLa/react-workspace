@@ -3,7 +3,7 @@ import React from 'react';
 class MenuItem extends React.Component {
   render() {
     return (
-      <li><a href={this.props.href}>{this.props.children}</a></li>
+      <li class="nav-item"><a class="nav-link" href={this.props.href}>{this.props.children}</a></li>
     );
   }
 }

@@ -8,7 +8,7 @@ class App extends React.Component {
   render() {
     const menuItems = [
       {href:'#', title: 'Home'},
-      {href:'login.html', title: 'Sign in'},
+      {href:'/login', title: 'Sign in'},
     ];
     const posts = [
       {
@@ -37,7 +37,7 @@ class App extends React.Component {
     <React.Fragment>
       <h1>Welcome!</h1>
       <Menu items={menuItems} titleMenu="Navigation"/>
-      <Login titleLogin="Login"/>
+      {/* <Login titleLogin="Login"/> */}
       <Blog postsData={posts} />
     </React.Fragment>
     )
