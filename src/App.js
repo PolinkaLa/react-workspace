@@ -33,12 +33,12 @@ class App extends React.Component {
       }
     ]
 
-    return <div>
+    return <Fragment>
       <h1>Welcome!</h1>
       <Menu items={menuItems} titleMenu="Navigation"/>
       <Login titleLogin="Login"/>
       <Blog postsData={posts} />
-    </div>
+    </Fragment>
   }
 }
 export default App;
