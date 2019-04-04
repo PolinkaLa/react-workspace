@@ -7,9 +7,9 @@ class Blog extends React.Component {
         return <Post key={index} href={item.title}>{item.postBody}</Post>
       })
     return (
-        <Fragment>
+        <React.Fragment>
           {postsData}
-        </Fragment>
+        </React.Fragment>
     );
     }
   }
