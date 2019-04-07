@@ -1,60 +1,28 @@
-const path = require('path'),
-    HTMLplugin = require('html-webpack-plugin'),
-    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  entry: {
-    main: path.resolve(__dirname, 'src', 'index.js'),
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: path.resolve(__dirname, 'dist'),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-        ],
-      },
-      {
-        test: /\.(gif|png|jpe?g)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'img/[hash].[ext]'
-            }
-          }
-        ]
-      },
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-  plugins: [
-    new HTMLplugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
-      filename: 'index.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-    }),
-  ],
-};
+	entry: './src/app.js',
+	output: {
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'main.js'
+	},
+	mode: 'development',
+	module: {
+		rules: 
+		[
+			{
+				test: /\.js$/,
+				loader: "babel-loader",
+				exclude: "/node_modules/"
+			},
+			{
+				test: /\.css$/,
+				loader: ['style-loader', 'css-loader']
+			}
+		]
+	},
+	devServer: {
+		contentBase: path.resolve(__dirname, 'dist'),
+		historyApiFallback: true
+	}
+}
