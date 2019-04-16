@@ -2,8 +2,6 @@ import React from 'react';
 import Menu from '../components/Menu';
 import MenuItem from '../components/MenuItem';
 
-import {Link} from 'react-router';
-
 export default class Layout extends React.Component {
   constructor(props) {
     super(props);
