@@ -1,28 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UserProfile from '../components/User';
 
-export default class User extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: null
-    };
-  }
+const User = props => {
 
-  render()
-  {
-    return(
-      <div>
-        {this.state.user && <UserProfile {...this.state.user}/>}
-      </div>
-    );
-  }
+  const [userState, setUserState] = useState([]);
 
-  componentDidMount() {
-    axios.get('http://jsonplaceholder.typicode.com/users/' + this.props.params.userId)
-    .then(response => {
-      this.setState({user: response.data})
-    })
-  }
+  useEffect(() => {
+    axios.get('http://jsonplaceholder.typicode.com/users/' + props.params.userId)
+      .then(response => {
+        const result = response.data;
+        setUserState(result)
+      }).catch(error => {
+        console.log(error)
+      });
+  })
+
+
+  return (
+    <div>
+      {userState && <UserProfile {...userState} />}
+    </div>
+  );
 }
+
+export default User 

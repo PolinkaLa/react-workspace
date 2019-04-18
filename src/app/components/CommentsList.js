@@ -1,37 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import User from './Comment';
+import Comment from './Comment';
 
-export default class CommentsList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      comments: []
-    };
-  }
+const CommentsList = props => {
 
-  render()
-  {
-    if (!this.state.comments.length) {
-      return null;
-    }
+  const [commentsState, setCommentsState] = useState([]);
 
-    const comments = this.state.comments.map((comment, index) => {
-      return <User key={index} {...comment}/>
-    })
-
-    return (
-      <>
-        <h1>Комментарии</h1>
-        {comments}
-      </>
-    );
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     axios.get('http://jsonplaceholder.typicode.com/comments/')
-    .then(response => {
-      this.setState({comments: response.data})
-    });
+      .then(response => {
+        const result = response.data;
+        setCommentsState(result)
+      }).catch(error => {
+        console.log(error)
+      });
+  })
+
+  if (!commentsState.length) {
+    return null;
   }
+
+  const comments = commentsState.map((comment, index) => {
+    return <Comment key={index} {...comment} />
+  })
+
+  return (
+    <>
+      <h1>Комментарии</h1>
+      {comments}
+    </>
+  );
 }
+
+export default CommentsList
