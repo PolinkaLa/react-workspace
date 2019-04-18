@@ -1,19 +1,17 @@
 import React from 'react';
 import CommentsList from '../components/CommentsList';
 
-export default class Comments extends React.Component {
-  render()
-  {
+const Comments = props => {
     return(
       <div>
       {
-          (!this.props.children) ?
+          (!props.children) ?
           (<CommentsList/>)
           :
-          (this.props.children)
+          (props.children)
         }
       </div>
-
     );
-  }
 }
+
+export default Comments

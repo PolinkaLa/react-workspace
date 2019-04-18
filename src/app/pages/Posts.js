@@ -1,19 +1,16 @@
 import React from 'react';
 import PostsList from '../components/PostsList';
 
-export default class Posts extends React.Component {
-  render()
-  {
+const Posts = props => {
     return(
       <div>
       {
-          (!this.props.children) ?
+          (!props.children) ?
           (<PostsList/>)
           :
-          (this.props.children)
+          (props.children)
         }
       </div>
-
     );
-  }
 }
+export default Posts

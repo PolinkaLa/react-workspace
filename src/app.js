@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Router, Route, IndexRoute, browserHistory, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
 import Layout from "./app/layouts/layout";
 import MainPage from "./app/pages/Main";

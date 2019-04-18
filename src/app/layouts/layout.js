@@ -2,40 +2,34 @@ import React from 'react';
 import Menu from '../components/Menu';
 import MenuItem from '../components/MenuItem';
 
-import {Link} from 'react-router';
+const Layout = props => {
 
-export default class Layout extends React.Component {
-  constructor(props) {
-    super(props);
-    this.brand = 'React blog!';
-  }
+  const brand = 'React blog!';
 
-  isActive(href) {
+  const isActive = href =>  {
     return window.location.pathname === href;
   }
 
-  render()
-  {
     return(
       <div>
-        <Menu brand={this.brand}>
-          <MenuItem href="/" active={this.isActive('/')}>
+        <Menu brand={brand}>
+          <MenuItem href="/" active={isActive('/')}>
             Главная
           </MenuItem>
-          <MenuItem href="/posts" active={this.isActive('/posts')}>
+          <MenuItem href="/posts" active={isActive('/posts')}>
             Посты
           </MenuItem>
-          <MenuItem href="/comments" active={this.isActive('/comments')}>
+          <MenuItem href="/comments" active={isActive('/comments')}>
             Комменты
           </MenuItem>
-          <MenuItem href="/users" active={this.isActive('/users')}>
+          <MenuItem href="/users" active={isActive('/users')}>
             Пользователи
           </MenuItem>
         </Menu>
         <div className="container">
           <div className="row">
             <div className="col-12">
-              {this.props.children}
+              {props.children}
             </div>
           </div>
         </div>
@@ -44,5 +38,5 @@ export default class Layout extends React.Component {
         </footer>
       </div>
     );
-  }
 }
+export default Layout
