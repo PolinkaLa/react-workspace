@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchUsers} from '../actions/usersActions';
-
+import {Link} from 'react-router';
 class UsersList extends React.Component {
   constructor(props) {
     super(props);
