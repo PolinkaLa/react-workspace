@@ -13,7 +13,7 @@ const PostsList = props => {
       }).catch(error => {
         console.log(error)
       });
-  })
+  }, [])
   if (!postsState.length) {
     return null;
   }
