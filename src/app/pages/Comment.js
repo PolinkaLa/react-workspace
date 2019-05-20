@@ -3,7 +3,7 @@ import axios from 'axios';
 import CommentView from '../components/Comment';
 
 const Comment = props => {
-  const [commentState, setCommentState] = useState([]);
+  const [commentState, setCommentState] = useState(null);
 
   useEffect(() => {
     axios.get('http://jsonplaceholder.typicode.com/comments/' + props.params.commentId)
